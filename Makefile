@@ -1137,4 +1137,9 @@ release/baseq2/game.so : $(GAME_OBJS)
 	${Q}$(CC) $(LDFLAGS) $(GAME_OBJS) $(LDLIBS) -o $@
 endif
 
+# release/dll
+ifeq ($(YQ2_OSTYPE), Windows)
+	${Q}cp stuff/win/* release/
+endif
+
 # ----------
