@@ -572,8 +572,8 @@ Sys_RemoveDir(const char *path)
 	
 	MultiByteToWideChar(CP_UTF8, 0, path, -1, wpath, MAX_OSPATH);
 
-	wcscat_s(wpathwithwildcard, MAX_OSPATH, wpath);
-	wcscat_s(wpathwithwildcard, MAX_OSPATH, L"\\*.*");
+	wcscat(wpathwithwildcard, wpath);
+	wcscat(wpathwithwildcard, L"\\*.*");
 	
 	HANDLE hFind = FindFirstFileW(wpathwithwildcard, &fd);
 	if (hFind != INVALID_HANDLE_VALUE)
@@ -581,8 +581,8 @@ Sys_RemoveDir(const char *path)
 		do
 		{
 			wmemset(wpathwithfilename, 0, MAX_OSPATH);
-			wcscat_s(wpathwithfilename, MAX_OSPATH, wpath);
-			wcscat_s(wpathwithfilename, MAX_OSPATH, fd.cFileName);
+			wcscat(wpathwithfilename, wpath);
+			wcscat(wpathwithfilename, fd.cFileName);
 			
 			DeleteFileW(wpathwithfilename);
 		}

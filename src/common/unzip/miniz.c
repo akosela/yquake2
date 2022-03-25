@@ -2941,13 +2941,13 @@ extern "C" {
 static FILE *mz_fopen(const char *pFilename, const char *pMode)
 {
     FILE *pFile = NULL;
-    fopen_s(&pFile, pFilename, pMode);
+    fopen(pFilename, pMode);
     return pFile;
 }
 static FILE *mz_freopen(const char *pPath, const char *pMode, FILE *pStream)
 {
     FILE *pFile = NULL;
-    if (freopen_s(&pFile, pPath, pMode, pStream))
+    if (freopen(pPath, pMode, pStream))
         return NULL;
     return pFile;
 }
