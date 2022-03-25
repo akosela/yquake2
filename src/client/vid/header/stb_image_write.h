@@ -301,6 +301,7 @@ STBIWDEF int stbiw_convert_wchar_to_utf8(char *buffer, size_t bufferlen, const w
 static FILE *stbiw__fopen(char const *filename, char const *mode)
 {
    FILE *f;
+   f = NULL;
 #if defined(_MSC_VER) && defined(STBI_WINDOWS_UTF8)
    wchar_t wMode[64];
    wchar_t wFilename[1024];
@@ -311,13 +312,11 @@ static FILE *stbiw__fopen(char const *filename, char const *mode)
       return 0;
 
 #if _MSC_VER >= 1400
-	f = 0;
-	f = _wfopen(wFilename, wMode);
+   f = _wfopen(wFilename, wMode);
 #endif
 
 #elif defined(_MSC_VER) && _MSC_VER >= 1400
-	f = 0;
-	f = fopen(filename, mode);
+   f = fopen(filename, mode);
 #endif
    return f;
 }
