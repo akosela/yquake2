@@ -66,7 +66,7 @@ WITH_SYSTEMDIR:=""
 # The app-bundle itself will not be created, but the runtime paths
 # will be set to expect the game-data in *.app/
 # Contents/Resources
-OSX_APP:=yes
+OSX_APP:=no
 
 # This is an optional configuration file, it'll be used in
 # case of presence.
@@ -296,6 +296,8 @@ else ifeq ($(YQ2_OSTYPE),OpenBSD)
 INCLUDE ?= -I/usr/local/include
 else ifeq ($(YQ2_OSTYPE),Windows)
 INCLUDE ?= -I/usr/include
+else ifeq ($(YQ2_OSTYPE),Darwin)
+INCLUDE ?= -I/usr/include -I/opt/local/include
 endif
 
 # ----------
@@ -316,6 +318,8 @@ else ifeq ($(YQ2_OSTYPE),OpenBSD)
 LDFLAGS ?= -L/usr/local/lib
 else ifeq ($(YQ2_OSTYPE),Windows)
 LDFLAGS ?= -L/usr/lib
+else ifeq ($(YQ2_OSTYPE),Darwin)
+LDFLAGS ?= -L/usr/lib -L/opt/local/lib
 endif
 
 # Link address sanitizer if requested.
