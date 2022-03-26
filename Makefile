@@ -1146,4 +1146,7 @@ ifeq ($(YQ2_OSTYPE), Windows)
 	${Q}cp stuff/win/* release/
 endif
 
+# release/baseq2/music
+	${Q}mkdir release/baseq2/music
+
 # ----------
