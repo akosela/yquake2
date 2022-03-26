@@ -1146,8 +1146,14 @@ ifeq ($(YQ2_OSTYPE), Windows)
 	${Q}cp stuff/win/* release/
 endif
 
-# config.cfg
+# release/baseq2/music
 	${Q}mkdir release/baseq2/music
-	${Q}cp stuff/config.cfg release/baseq2/
+
+# release/baseq2/config.cfg
+ifeq ($(YQ2_OSTYPE), Windows)
+	${Q}cp stuff/config-win.cfg release/baseq2/config.cfg
+else ifeq ($(YQ2_OSTYPE), Darwin)
+	${Q}cp stuff/config-osx.cfg release/baseq2/config.cfg
+endif
 
 # ----------
