@@ -1,7 +1,7 @@
 # Yamagi Quake II-XP
 
 Yamagi Quake II-XP is a fork of Yamagi Quake II 8.01 tailored specifically to
-compile on Windows XP. It is maintained by Andy Kosela <akosela@andykosela.com>.
+compile on Windows XP. It is maintained by Andy Kosela.
 
 Yamagi Quake II is an enhanced client for id Software's Quake
 II with focus on offline and coop gameplay. Both the gameplay and the graphics
