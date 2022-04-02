@@ -295,7 +295,7 @@ INCLUDE ?= -I/usr/X11R7/include -I/usr/pkg/include
 else ifeq ($(YQ2_OSTYPE),OpenBSD)
 INCLUDE ?= -I/usr/local/include
 else ifeq ($(YQ2_OSTYPE),Windows)
-INCLUDE ?= -I/usr/include
+INCLUDE ?= -I/mingw32/include
 else ifeq ($(YQ2_OSTYPE),Darwin)
 INCLUDE ?= -I/usr/include -I/opt/local/include
 endif
@@ -317,7 +317,7 @@ LDFLAGS ?= -L/usr/X11R7/lib -Wl,-R/usr/X11R7/lib -L/usr/pkg/lib -Wl,-R/usr/pkg/l
 else ifeq ($(YQ2_OSTYPE),OpenBSD)
 LDFLAGS ?= -L/usr/local/lib
 else ifeq ($(YQ2_OSTYPE),Windows)
-LDFLAGS ?= -L/usr/lib
+LDFLAGS ?= -L/mingw32/lib
 else ifeq ($(YQ2_OSTYPE),Darwin)
 LDFLAGS ?= -L/usr/lib -L/opt/local/lib
 endif
